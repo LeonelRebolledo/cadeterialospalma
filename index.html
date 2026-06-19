@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cadeteria Los Palma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-card">
+      <div class="brand-row">
+        <div>
+          <p class="eyebrow">Ruteo Movil</p>
+          <h1>Cadeteria Los Palma</h1>
+        </div>
+        <div class="badge-live">
+          <span class="live-dot"></span>
+          <span id="locationStatus">Ubicacion pendiente</span>
+        </div>
+      </div>
+
+      <p class="hero-copy">
+        Carga cada despacho o entrega, toma las fotos desde la camara del celular y genera el PDF final con resumen, fecha, horario y ubicacion.
+      </p>
+
+      <img id="partnerHeroImage" class="partner-hero-image" src="partner-2026-06-18.png" alt="Vehiculo Partner de Cadeteria Los Palma">
+
+      <button id="locationButton" class="button primary wide" type="button">
+        Permitir ubicacion
+      </button>
+    </section>
+
+    <section class="form-card">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Pagina 1</p>
+          <h2>Datos de la gestion</h2>
+        </div>
+        <div class="step-pill">
+          <span id="entryCounter">Parada 1</span>
+        </div>
+      </div>
+
+      <form id="deliveryForm" class="delivery-form">
+        <label class="field">
+          <span class="label">EMPRESA</span>
+          <input id="company" name="company" type="text" inputmode="text" autocomplete="organization" placeholder="Ingrese la empresa" required>
+        </label>
+
+        <fieldset class="field">
+          <legend class="label">TIPO</legend>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="radio" name="deliveryType" value="DESPACHO" checked>
+              <span>DESPACHO</span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="deliveryType" value="ENTREGA">
+              <span>ENTREGA</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="capture-grid">
+          <section class="capture-card">
+            <div class="capture-title-row">
+              <h3>PRODUCTO</h3>
+              <span class="capture-state" id="productState">Sin foto</span>
+            </div>
+            <label class="capture-box" for="productImage">
+              <input id="productImage" name="productImage" type="file" accept="image/*" capture="environment" hidden>
+              <img id="productPreview" alt="Vista previa de producto">
+              <span class="capture-placeholder">Tocar para abrir camara</span>
+            </label>
+          </section>
+
+          <section class="capture-card">
+            <div class="capture-title-row">
+              <h3>REMITO</h3>
+              <span class="capture-state" id="remitoState">Sin foto</span>
+            </div>
+            <label class="capture-box" for="remitoImage">
+              <input id="remitoImage" name="remitoImage" type="file" accept="image/*" capture="environment" hidden>
+              <img id="remitoPreview" alt="Vista previa de remito">
+              <span class="capture-placeholder">Tocar para abrir camara</span>
+            </label>
+          </section>
+        </div>
+
+        <div class="location-card">
+          <p class="label">UBICACION ACTUAL</p>
+          <p id="locationSummary">Todavia no se otorgo permiso de ubicacion.</p>
+        </div>
+
+        <div class="actions">
+          <button id="nextButton" class="button secondary" type="button">Siguiente</button>
+          <button id="finishButton" class="button primary" type="submit">Fin</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list-card">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Resumen parcial</p>
+          <h2>Paradas cargadas</h2>
+        </div>
+        <span class="step-pill" id="summaryCount">0 guardadas</span>
+      </div>
+      <div id="entriesList" class="entries-list">
+        <p class="empty-state">Todavia no hay paradas guardadas.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
