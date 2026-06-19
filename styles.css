@@ -129,6 +129,18 @@ h3 {
   line-height: 1.55;
 }
 
+.partner-hero-image {
+  position: absolute;
+  right: 14px;
+  top: 78px;
+  width: clamp(150px, 34vw, 255px);
+  max-width: 42%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 18px 28px rgba(24, 33, 29, 0.16));
+}
+
 .badge-live,
 .step-pill {
   display: inline-flex;
@@ -349,6 +361,11 @@ input[type="text"]:focus {
 }
 
 @media (min-width: 640px) {
+  .hero-card {
+    min-height: 292px;
+    padding-right: 240px;
+  }
+
   .capture-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -369,5 +386,13 @@ input[type="text"]:focus {
   .badge-live,
   .step-pill {
     justify-content: center;
+  }
+
+  .partner-hero-image {
+    position: static;
+    display: block;
+    width: min(260px, 82%);
+    max-width: none;
+    margin: 18px auto 0;
   }
 }
