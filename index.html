@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cadeteria Los Palma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-card">
+      <div class="hero-copy-col">
+        <div class="brand-row">
+          <div>
+            <p class="eyebrow">Ruteo movil</p>
+            <h1>Cadeteria Los Palma</h1>
+          </div>
+          <div class="badge-live">
+            <span class="live-dot"></span>
+            <span id="locationStatus">Ubicacion pendiente</span>
+          </div>
+        </div>
+
+        <p class="hero-copy">
+          Carga una parada rapido, saca el documento y hasta 4 imagenes, y genera un PDF prolijo con fecha, horario, ubicacion y resumen final.
+        </p>
+
+        <div class="hero-notes">
+          <span class="hero-chip required">Documento obligatorio</span>
+          <span class="hero-chip required">Imagen 1 obligatoria</span>
+          <span class="hero-chip optional">Imagen 2, 3 y 4 opcionales</span>
+        </div>
+
+        <button id="locationButton" class="button primary wide" type="button">
+          Permitir ubicacion
+        </button>
+      </div>
+
+      <div class="hero-visual">
+        <img id="partnerHeroImage" class="partner-hero-image" src="partner-2026-06-18.png" alt="Vehiculo Partner de Cadeteria Los Palma">
+      </div>
+    </section>
+
+    <section class="form-card">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Pagina 1</p>
+          <h2>Datos de la gestion</h2>
+        </div>
+        <div class="step-pill">
+          <span id="entryCounter">Parada 1</span>
+        </div>
+      </div>
+
+      <form id="deliveryForm" class="delivery-form">
+        <label class="field">
+          <span class="label">Empresa</span>
+          <input id="company" name="company" type="text" inputmode="text" autocomplete="organization" placeholder="Ingrese la empresa" required>
+        </label>
+
+        <fieldset class="field">
+          <legend class="label">Tipo</legend>
+          <div class="choice-grid">
+            <label class="choice-card">
+              <input type="radio" name="deliveryType" value="DESPACHO" checked>
+              <span>DESPACHO</span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="deliveryType" value="ENTREGA">
+              <span>ENTREGA</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <section class="warning-card">
+          <p class="warning-title">Advertencia de carga</p>
+          <p class="warning-copy">
+            En cada parada debes subir si o si <strong>1 DOCUMENTO</strong> y <strong>1 IMAGEN</strong>.
+            Las imagenes 2, 3 y 4 son opcionales.
+          </p>
+        </section>
+
+        <div class="capture-layout">
+          <section class="capture-card capture-card-document">
+            <div class="capture-title-row">
+              <div>
+                <h3>DOCUMENTO</h3>
+                <p class="capture-help">Obligatorio</p>
+              </div>
+              <span class="capture-state" id="documentState">Sin foto</span>
+            </div>
+            <label class="capture-box required-box" for="documentImage">
+              <input id="documentImage" name="documentImage" type="file" accept="image/*" capture="environment" hidden>
+              <img id="documentPreview" alt="Vista previa de documento">
+              <span class="capture-placeholder">Tocar para abrir camara</span>
+            </label>
+          </section>
+
+          <div class="capture-images-block">
+            <section class="capture-card">
+              <div class="capture-title-row">
+                <div>
+                  <h3>IMAGEN 1</h3>
+                  <p class="capture-help">Obligatoria</p>
+                </div>
+                <span class="capture-state" id="image1State">Sin foto</span>
+              </div>
+              <label class="capture-box required-box" for="image1">
+                <input id="image1" name="image1" type="file" accept="image/*" capture="environment" hidden>
+                <img id="image1Preview" alt="Vista previa de imagen 1">
+                <span class="capture-placeholder">Tocar para abrir camara</span>
+              </label>
+            </section>
+
+            <section class="capture-card">
+              <div class="capture-title-row">
+                <div>
+                  <h3>IMAGEN 2</h3>
+                  <p class="capture-help">Opcional</p>
+                </div>
+                <span class="capture-state" id="image2State">Opcional</span>
+              </div>
+              <label class="capture-box optional-box" for="image2">
+                <input id="image2" name="image2" type="file" accept="image/*" capture="environment" hidden>
+                <img id="image2Preview" alt="Vista previa de imagen 2">
+                <span class="capture-placeholder">Imagen extra</span>
+              </label>
+            </section>
+
+            <section class="capture-card">
+              <div class="capture-title-row">
+                <div>
+                  <h3>IMAGEN 3</h3>
+                  <p class="capture-help">Opcional</p>
+                </div>
+                <span class="capture-state" id="image3State">Opcional</span>
+              </div>
+              <label class="capture-box optional-box" for="image3">
+                <input id="image3" name="image3" type="file" accept="image/*" capture="environment" hidden>
+                <img id="image3Preview" alt="Vista previa de imagen 3">
+                <span class="capture-placeholder">Imagen extra</span>
+              </label>
+            </section>
+
+            <section class="capture-card">
+              <div class="capture-title-row">
+                <div>
+                  <h3>IMAGEN 4</h3>
+                  <p class="capture-help">Opcional</p>
+                </div>
+                <span class="capture-state" id="image4State">Opcional</span>
+              </div>
+              <label class="capture-box optional-box" for="image4">
+                <input id="image4" name="image4" type="file" accept="image/*" capture="environment" hidden>
+                <img id="image4Preview" alt="Vista previa de imagen 4">
+                <span class="capture-placeholder">Imagen extra</span>
+              </label>
+            </section>
+          </div>
+        </div>
+
+        <div class="location-card">
+          <p class="label">Ubicacion actual</p>
+          <p id="locationSummary">Todavia no se otorgo permiso de ubicacion.</p>
+        </div>
+
+        <div class="actions">
+          <button id="resetButton" class="button ghost" type="button">Reset</button>
+          <button id="nextButton" class="button secondary" type="button">Siguiente</button>
+          <button id="finishButton" class="button primary" type="submit">Fin</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list-card">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Resumen parcial</p>
+          <h2>Paradas cargadas</h2>
+        </div>
+        <span class="step-pill" id="summaryCount">0 guardadas</span>
+      </div>
+      <div id="entriesList" class="entries-list">
+        <p class="empty-state">Todavia no hay paradas guardadas.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="resetModal" class="modal-backdrop" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="resetModalTitle">
+      <p class="modal-eyebrow">Reiniciar carga</p>
+      <h3 id="resetModalTitle">Seguro que quiere empezar de 0?</h3>
+      <p class="modal-copy">
+        Se borraran las paradas cargadas, las fotos actuales y el estado de la solicitud para iniciar una nueva.
+      </p>
+      <div class="modal-actions">
+        <button id="cancelResetButton" class="button secondary" type="button">Continuar editando</button>
+        <button id="confirmResetButton" class="button primary" type="button">Cargar nueva solicitud</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastMessage" class="toast-message" hidden>Cargar nueva solicitud</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
