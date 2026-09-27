@@ -1,0 +1,9 @@
+{
+  "name": "RUTINAS Y AGUA",
+  "short_name": "Rutinas",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#111827",
+  "description": "Rutina diaria de agua, caminatas, fuerza y seguimiento."
+}
